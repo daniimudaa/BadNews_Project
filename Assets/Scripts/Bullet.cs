@@ -9,11 +9,14 @@ public class Bullet : MonoBehaviour
 		gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
 		Destroy (gameObject, 5f);
 	}
-
-	void OnTriggerEnter (Collider col)
+		
+	void OnCollisionEnter (Collision coll)
 	{
-		Destroy (gameObject);
+		if (coll.gameObject.tag == "Target")
+		{
+			//play animation? break? stay?
+			Destroy (coll.gameObject, 0.5f);
+		}
 	}
-
 
 }
