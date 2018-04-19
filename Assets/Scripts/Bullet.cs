@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour 
 {
+	//public ScoreSystem scoreScript;
+
+	void Start ()
+	{
+	//	scoreScript = gameObject.GetComponent <ScoreSystem> ();
+	}
+
 	void Update ()
 	{
 		gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
@@ -14,6 +21,7 @@ public class Bullet : MonoBehaviour
 	{
 		if (coll.gameObject.tag == "Target")
 		{
+		//	scoreScript.AddScore();
 			//play animation? break? stay?
 			Destroy (coll.gameObject, 0.5f);
 		}
